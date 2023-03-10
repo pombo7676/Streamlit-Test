@@ -63,6 +63,7 @@ else:
 agree = st.checkbox('Everything complete')
 if agree == 1:
     if st.button('Apply'):
+        st.balloons()
         new_row = [employee_code,
                    last_name,
                    first_name,
