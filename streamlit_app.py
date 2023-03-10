@@ -76,3 +76,13 @@ if agree == 1:
         dataframe2 = dataframe.append(new_row, ignore_index=True)
 
         st.write(dataframe2)
+        
+        csv = dataframe2.to_csv().encode('utf-8')
+
+        
+
+        st.download_button(
+            label="Download data as CSV",
+            data=csv,
+            file_name='Test_r1.csv',
+            mime='text/csv',
