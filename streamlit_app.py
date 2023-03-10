@@ -78,6 +78,8 @@ if agree == 1:
         dataframe.loc[len(dataframe.index)] = new_row
 
         st.write(dataframe)
+        dataframe.reset_index(drop=True)
+        st.write(dataframe)
         
         csv = dataframe.to_csv().encode('utf-8')
 
