@@ -82,8 +82,6 @@ if agree == 1:
                 
         csv = dataframe.to_csv(index = False).encode('utf-8')
 
-        dataframe.to_csv('C:\\Users\\GLP\Desktop\\test.csv', index = False).encode('utf-8')
-
 
         st.download_button(
             label="Download data as CSV",
