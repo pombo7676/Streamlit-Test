@@ -59,4 +59,6 @@ else:
     employee_code = st.text_input("Employee Code:")
     
    
-   
+columns = dataframe.columns
+
+columns
