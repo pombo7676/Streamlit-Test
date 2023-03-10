@@ -64,6 +64,7 @@ agree = st.checkbox('Everything complete')
 if agree == 1:
     if st.button('Apply'):
         st.balloons()
+        st.success('Employee was added to the Database!', icon="✅")
         new_row = [employee_code,
                    last_name,
                    first_name,
