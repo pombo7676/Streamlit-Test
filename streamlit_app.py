@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import datetime
 
 # Findmore emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
@@ -38,7 +39,7 @@ if reg_can == "Registration":
             'Sex',
             ('Female', 'Male'))
         nation = st.text_input('Nationality:')
-        date_birth = st.date_input("Birth Date:")
+        date_birth = st.date_input("Birth Date:", min_value = datetime.date(1950, 1, 1))
         email = st.text_input('Email:')
         telephone = st.text_input('Telephone:')
 
