@@ -62,16 +62,16 @@ else:
 agree = st.checkbox('Everything complete')
 if agree == 1:
     if st.button('Apply'):
-        new_row = {"Employee_code": employee_code,
-               "Last_name" : last_name,
-               "First_name": first_name,
-               "Sex": sex,
-               "Nationality": nation,
-               "Birth_date":date_birth,
-               "Email": email,
-               "Telephone": telephone,
-               "Registration_date": reg_date,
-               "Full/Part":type_contract}
+        new_row = [employee_code,
+                   last_name,
+                   first_name,
+                   sex,
+                   nation,
+                   date_birth,
+                   email,
+                   telephone,
+                   reg_date,
+                   type_contract]
 
         dataframe2 = dataframe.append(new_row)
 
