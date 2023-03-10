@@ -85,4 +85,4 @@ if agree == 1:
             label="Download data as CSV",
             data=csv,
             file_name='Test_r1.csv',
-            mime='text/csv',
+            mime='text/csv')
