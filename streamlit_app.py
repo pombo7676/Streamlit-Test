@@ -73,7 +73,7 @@ if agree == 1:
                "Registration_date": reg_date,
                "Full/Part":type_contract}
 
-        dataframe2 = dataframe.append(new_row, ignore_index=True)
+        dataframe2 = dataframe.append(new_row, ignore_index=False)
 
         st.write(dataframe2)
         
