@@ -81,10 +81,10 @@ if agree == 1:
         st.write(dataframe)
                 
         csv = dataframe.to_csv(index = False).encode('utf-8')
-
-
+        date = datetime.datetime.now()
+        date = date.strftime('%Y/%m/%d')
         st.download_button(
             label="Download data as CSV",
             data=csv,
-            file_name='Test.csv',
+            file_name='Test'+date+'.csv',
             mime='text/csv')
