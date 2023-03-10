@@ -20,6 +20,14 @@ reg_can = st.radio(
     'Type of change?',
     ('Registration', 'Voluntary Resignation', 'Dismisall'))
 
+df = pd.DataFrame(
+    [
+       {"command": "st.selectbox", "rating": 4, "is_widget": True},
+       {"command": "st.balloons", "rating": 5, "is_widget": False},
+       {"command": "st.time_input", "rating": 3, "is_widget": True},
+   ]
+)
+edited_df = st.experimental_data_editor(df)
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
