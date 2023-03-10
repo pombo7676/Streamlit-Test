@@ -73,11 +73,13 @@ if agree == 1:
                    reg_date,
                    type_contract]
 
-        dataframe2 = dataframe.append(new_row, ignore_index = True)
-
-        st.write(dataframe2)
         
-        csv = dataframe2.to_csv().encode('utf-8')
+        
+        dataframe.loc[len(dataframe.index)] = new_row
+
+        st.write(dataframe)
+        
+        csv = dataframe.to_csv().encode('utf-8')
 
         
 
