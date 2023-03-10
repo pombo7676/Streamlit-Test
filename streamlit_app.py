@@ -33,7 +33,7 @@ if reg_can == "Registration":
 
     with col1:
         st.header("Personal info:")
-        name = st.text_input('Name:')
+        first_name = st.text_input('First Name:')
         last_name = st.text_input('Last Name:')
         sex = st.radio(
             'Sex',
@@ -59,6 +59,21 @@ else:
     employee_code = st.text_input("Employee Code:")
     
    
-columns = dataframe.columns
+agree = st.checkbox('Everything complete')
+if agree == 1:
+    
+if st.button('Apply'):
+    new_row = {"Employee_code": employee_code,
+               "Last_name" : last_name,
+               "First_name": first_name,
+               "Sex": sex,
+               "Nationality": nation,
+               "Birth_date":date_birth,
+               "Email": email,
+               "Telephone": telephone,
+               "Registration_date": reg_date,
+               "Full/Part":type_contract}
 
-st.write(list(columns))
+    dataframe2 = dataframe.append(new_row, ignore_index=True)
+
+    st.write(dataframe2)
