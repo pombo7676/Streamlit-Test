@@ -61,4 +61,4 @@ else:
    
 columns = dataframe.columns
 
-list(columns)
+st.write(list(columns))
