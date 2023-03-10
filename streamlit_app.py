@@ -14,7 +14,7 @@ st.subheader("App to update registrations and cancellations")
 
 st.write("[Official Website](https://www.tinsa.es/)")
 
-reg_can = st.selectbox(
+reg_can = st.radio(
     'Type of change?',
     ('Registration', 'Voluntary Resignation', 'Dismisall'))
 
@@ -34,7 +34,7 @@ if reg_can == "Registration":
         st.header("Personal info:")
         name = st.text_input('Name:')
         last_name = st.text_input('Last Name:')
-        sex = st.selectbox(
+        sex = st.radio(
             'Sex',
             ('Female', 'Male'))
         nation = st.text_input('Nationality:')
@@ -44,7 +44,10 @@ if reg_can == "Registration":
 
     with col2:
         st.header("Registration:")
-    
+        employee_code = st.text_input("Employee Code:")
+        reg_date = st.date_input("Registration Date:")
+        type_contract = st.radio('Full/Part Time?',
+    ('Full Time', 'Part Time'))
     
 
     with col3:
@@ -52,7 +55,7 @@ if reg_can == "Registration":
 
 else:
     st.header("Personal info:")
-    st.text_input("Employee Code:")
+    employee_code = st.text_input("Employee Code:")
     
    
    
