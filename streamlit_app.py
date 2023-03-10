@@ -23,3 +23,28 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
+    
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+   st.header("Personal info:")
+   name = st.text_input('Name:')
+   last_name = st.text_input('Last Name:')
+   sex = st.selectbox(
+    'Sex',
+    ('Female', 'Male'))
+   nation = st.text_input('Nationality:')
+   date_birth = st.date_input("Birth Date:")
+   email = st.text_input('Email:')
+   telephone = st.text_input('Telephone:')
+
+with col2:
+   st.header("Registration:")
+   
+   
+
+with col3:
+   st.header("Contract")
+   
+   
