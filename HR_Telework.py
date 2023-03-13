@@ -19,16 +19,18 @@ st.title("TINSA TELEWORK WEBSITE")
 
 
 
+if button("Button 1", key="button1"):
+    if button("Button 2", key="button2"):
+        if button("Button 3", key="button3"):
+            st.write("All 3 buttons are pressed")
+
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
     #st.image("https://ncrefuge.org/wp-content/uploads/2019/11/new-icon.png")
+    button('Nueva Petición', key = "button1")
     
-    if button('Nueva Petición', key = "button1"):
-        employee_code = st.text_input("Código empleado:")
-        percent = st.slider('Porcentaje:', 0, 100, 5)
-        format_telework = reg_can = st.radio('Type of change?',
-                                            ('Semanas enteras', 'Por días'))  
 
 with col2:
     #st.image("https://static9.depositphotos.com/1003938/1123/v/950/depositphotos_11233144-stock-illustration-funny-cartoon-manager.jpg")
@@ -41,4 +43,8 @@ with col3:
 
 
 
-    
+if button('Nueva Petición', key = "button1"):
+        employee_code = st.text_input("Código empleado:")
+        percent = st.slider('Porcentaje:', 0, 100, 5)
+        format_telework = reg_can = st.radio('Type of change?',
+                                            ('Semanas enteras', 'Por días'))      
