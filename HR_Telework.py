@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime
-from pathlib import Path 
+from pathlib import Path
 from email.message import EmailMessage
 import ssl
 import smtplib
@@ -24,7 +24,7 @@ if button("Button 1", key="button1"):
         if button("Button 3", key="button3"):
             st.write("All 3 buttons are pressed")
 
-
+"""
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -48,3 +48,5 @@ if button('Nueva Petición', key = "button1"):
         percent = st.slider('Porcentaje:', 0, 100, 5)
         format_telework = reg_can = st.radio('Type of change?',
                                             ('Semanas enteras', 'Por días'))      
+                                            
+"""
