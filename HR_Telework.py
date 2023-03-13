@@ -22,18 +22,18 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.image("https://ncrefuge.org/wp-content/uploads/2019/11/new-icon.png")
-    st.button('Nueva Petición')  
+    op1 = st.button('Nueva Petición')  
 
 with col2:
     st.image("https://static9.depositphotos.com/1003938/1123/v/950/depositphotos_11233144-stock-illustration-funny-cartoon-manager.jpg")
-    st.button('Managers')
+    op2 = st.button('Managers')
 
 with col3:
     st.image("https://play-lh.googleusercontent.com/WL9oSrJxfO6XDrSnuERVcjFXN--XztDibPGtAxIJsJBfm2ZAv4WvkR5yFuOcFKKR0_A=w240-h480-rw")
-    st.button('Estado Petición')
+    op3 = st.button('Estado Petición')
     
     
-if st.button('Nueva Petición'):
+if op1 ==True:
     employee_code = st.text_input("Código empleado:")
     percent = st.slider('Porcentaje:', 0, 100, 5)
     format_telework = reg_can = st.radio('Type of change?',
