@@ -34,6 +34,8 @@ with col3:
     
     
 if op1 ==True:
+    test = 1
+if test == 1:
     employee_code = st.text_input("Código empleado:")
     percent = st.slider('Porcentaje:', 0, 100, 5)
     format_telework = reg_can = st.radio('Type of change?',
