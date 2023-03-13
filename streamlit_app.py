@@ -20,14 +20,6 @@ reg_can = st.radio(
     'Type of change?',
     ('Registration', 'Voluntary Resignation', 'Dismisall'))
 
-df = pd.DataFrame(
-    [
-       {"command": "st.selectbox", "rating": 4, "is_widget": True},
-       {"command": "st.balloons", "rating": 5, "is_widget": False},
-       {"command": "st.time_input", "rating": 3, "is_widget": True},
-   ]
-)
-edited_df = st.experimental_data_editor(df)
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
@@ -98,3 +90,36 @@ if agree == 1:
             data=csv,
             file_name='Test_'+date+'.csv',
             mime='text/csv')
+
+from email.message import EmailMessage
+import ssl
+import smtplib
+
+
+email_emisor = 'inigo.larrea@tinsa.com'
+email_contrasena = 'ndlcrxjymcgfiojr'
+
+email_receptor = 'pombo7676@gmail.com'
+
+asunto = 'Test python'
+cuerpo = """
+Vamos a ver sí funciona este programa de python
+
+
+
+
+"""
+
+
+em = EmailMessage()
+
+em['From'] = email_emisor
+em['To'] = email_receptor
+em['Subject'] = asunto
+em.set_content(cuerpo)
+
+contexto = ssl.create_default_context()
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=contexto) as smtp:
+    smtp.login(email_emisor, email_contrasena)
+    smtp.sendmail(email_emisor, email_receptor, em.as_string())
