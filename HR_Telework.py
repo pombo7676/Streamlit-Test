@@ -32,7 +32,7 @@ with col3:
     #st.image("https://play-lh.googleusercontent.com/WL9oSrJxfO6XDrSnuERVcjFXN--XztDibPGtAxIJsJBfm2ZAv4WvkR5yFuOcFKKR0_A=w240-h480-rw")
     op3 = st.button('Estado Petición')
     
-    
+test = 0 
 if op1 ==True:
     test = 1
 if test == 1:
