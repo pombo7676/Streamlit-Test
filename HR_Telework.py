@@ -5,6 +5,7 @@ from pathlib import Path
 from email.message import EmailMessage
 import ssl
 import smtplib
+from streamlit_extras.stateful_button import button
 
 # Findmore emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
@@ -22,24 +23,21 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     #st.image("https://ncrefuge.org/wp-content/uploads/2019/11/new-icon.png")
-    op1 = st.button('Nueva Petición')  
+    
+    if button('Nueva Petición', key = "button1"):
+        employee_code = st.text_input("Código empleado:")
+        percent = st.slider('Porcentaje:', 0, 100, 5)
+        format_telework = reg_can = st.radio('Type of change?',
+                                            ('Semanas enteras', 'Por días'))  
 
 with col2:
     #st.image("https://static9.depositphotos.com/1003938/1123/v/950/depositphotos_11233144-stock-illustration-funny-cartoon-manager.jpg")
-    op2 = st.button('Managers')
+    button('Managers', key = "button2")
 
 with col3:
     #st.image("https://play-lh.googleusercontent.com/WL9oSrJxfO6XDrSnuERVcjFXN--XztDibPGtAxIJsJBfm2ZAv4WvkR5yFuOcFKKR0_A=w240-h480-rw")
-    op3 = st.button('Estado Petición')
-    
-test = 0 
-if op1 ==True:
-    test = 1
-if test == 1:
-    employee_code = st.text_input("Código empleado:")
-    percent = st.slider('Porcentaje:', 0, 100, 5)
-    format_telework = reg_can = st.radio('Type of change?',
-                                         ('Semanas enteras', 'Por días'))
+    button('Estado Petición', key = "button3")
+
 
 
 
