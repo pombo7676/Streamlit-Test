@@ -15,18 +15,21 @@ st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
 
 st.image("https://www.tinsa.es/wp-content/uploads/2016/03/logo-tinsa-facebook.jpg")
 st.title("TINSA TELEWORK WEBSITE")
-st.image("https://www.google.com/url?sa=i&url=https%3A%2F%2Fehorus.com%2Fteleworking%2F&psig=AOvVaw1tg1FkUKbGsJxlCDCq80bH&ust=1678792645336000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODi747k2P0CFQAAAAAdAAAAABAD")
+
 
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
+    st.image("https://ncrefuge.org/wp-content/uploads/2019/11/new-icon.png")
     st.button('Nueva Petición')  
 
 with col2:
+    st.image("https://static9.depositphotos.com/1003938/1123/v/950/depositphotos_11233144-stock-illustration-funny-cartoon-manager.jpg")
     st.button('Managers')
 
 with col3:
+    st.image("https://play-lh.googleusercontent.com/WL9oSrJxfO6XDrSnuERVcjFXN--XztDibPGtAxIJsJBfm2ZAv4WvkR5yFuOcFKKR0_A=w240-h480-rw")
     st.button('Estado Petición')
     
     
@@ -38,24 +41,4 @@ if st.button('Nueva Petición'):
 
 
 
-    email_emisor = 'inigo.larrea@tinsa.com'
-    email_contrasena = 'ndlcrxjymcgfiojr'
-
-    email_receptor = 'inigo.larrea@tinsa.com'
-
-    asunto = 'TELEWORK PETITION FROM ' + employee_code
-    cuerpo = 'El empleado ' + employee_code + ' ha pedido teletrabajo con un porcetaje del ' + percent + '. Y con formato de ' + format_telework + '.'
-
-
-    em = EmailMessage()
-
-    em['From'] = email_emisor
-    em['To'] = email_receptor
-    em['Subject'] = asunto
-    em.set_content(cuerpo)
-
-    contexto = ssl.create_default_context()
-
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=contexto) as smtp:
-        smtp.login(email_emisor, email_contrasena)
-        smtp.sendmail(email_emisor, email_receptor, em.as_string())
+    
