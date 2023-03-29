@@ -1,101 +1,47 @@
-import streamlit as st
-import pandas as pd
-import datetime
-import os
-from pathlib import Path 
+import pandas as pd 
+# import streamlit as st 
+import os 
+import streamlit as st 
 
-# Findmore emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+#""" Data Source   """
+#web location for csv file, 'df.csv'
+data_src = r'https://raw.githubusercontent.com/clueple/free_resources/master/df.csv'
+# data_src = r'https://github.com/clueple/free_resources/blob/master/df.csv'
 
-
-# -------- HEADER SECTION ---------
-
-
-st.image("https://www.tinsa.es/wp-content/uploads/2016/03/logo-tinsa-facebook.jpg")
-st.title("TINSA HR HEADCOUNT")
-st.subheader("App to update registrations and cancellations")
-
-st.write("[Official Website](https://www.tinsa.es/)")
-
-reg_can = st.radio(
-    'Type of change?',
-    ('Registration', 'Voluntary Resignation', 'Dismisall'))
+#web location for csv file, 'dfc.csv'
+data_src1 = r'https://raw.githubusercontent.com/clueple/free_resources/master/dfc.csv'
+# data_src1 = r'https://github.com/clueple/free_resources/blob/master/dfc.csv'
 
 
-#uploaded_file = st.file_uploader("Choose a file")
-file_dir = r"C:\Users\GLP\Desktop\Headcount"
-file_name = "COSTA RICA ENERO 23.xlsx"
+#""" test folder  """
+# file_dir = os.listdir(r'd:/Downloads')
+file_dir = r'd:/Downloads'
+file_name = 'df1.csv'
+
 filepath = f"{file_dir}/{file_name}"
 
+
+#""" App Interface  """
+
 def main():
-    dataframe = pd.read_excel(filepath)
-    data = st.dataframe(dataframe)
+	st.header('Original Data')
+	df1 = pd.read_csv(filepath)
+	data = st.dataframe(df1)
+
+	with st.sidebar.form(key='df1', clear_on_submit=True):
+		add_col1 = st.text_input('col1')
+		add_col2 = st.number_input('col2', min_value=0.00)
+		add_col3 = st.number_input('col3', min_value=0.00)
+		submit = st.form_submit_button('Submit')
+		if submit:
+			new_data = {'col1': add_col1, 'col2': add_col2, 'col3': add_col3}
+
+			df1 = df1.append(new_data, ignore_index=True)
+			df1.to_csv(filepath, index=False)
+
+	st.header('After Update')
+	st.dataframe(df1)
+
 
 if __name__ == '__main__':
-    main()
-    
-
-if reg_can == "Registration":
-
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.header("Personal info:")
-        first_name = st.text_input('First Name:')
-        last_name = st.text_input('Last Name:')
-        sex = st.radio(
-            'Sex',
-            ('Female', 'Male'))
-        nation = st.text_input('Nationality:')
-        date_birth = st.date_input("Birth Date:", min_value = datetime.date(1950, 1, 1))
-        email = st.text_input('Email:')
-        telephone = st.text_input('Telephone:')
-
-    with col2:
-        st.header("Registration:")
-        employee_code = st.text_input("Employee Code:")
-        reg_date = st.date_input("Registration Date:")
-        type_contract = st.radio('Full/Part Time?',
-    ('Full Time', 'Part Time'))
-    
-
-    with col3:
-        st.header("Contract")
-
-else:
-    st.header("Personal info:")
-    employee_code = st.text_input("Employee Code:")
-    
-   
-agree = st.checkbox('Everything complete')
-if agree == 1:
-    if st.button('Apply'):
-        st.balloons()
-        st.success('Employee was added to the Database!', icon="✅")
-        new_row = [employee_code,
-                   last_name,
-                   first_name,
-                   sex,
-                   nation,
-                   date_birth,
-                   email,
-                   telephone,
-                   reg_date,
-                   type_contract]
-
-        
-'''        
-        dataframe.loc[len(dataframe.index)] = new_row
-
-        st.write(dataframe)
-                
-        csv = dataframe.to_csv(index = False).encode('utf-8')
-        date = datetime.datetime.now()
-        date = date.strftime('%Y_%m_%d')
-        st.download_button(
-            label="Download data as CSV",
-            data=csv,
-            file_name='Test_'+date+'.csv',
-            mime='text/csv')
-'''
+	main()
