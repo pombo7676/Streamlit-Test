@@ -23,7 +23,7 @@ reg_can = st.radio(
 
 #uploaded_file = st.file_uploader("Choose a file")
 
-dataframe = pd.read_excel(r'G:\\Unidades compartidas\\HR_Legal\\Legal_HR.xlsx', header = 1)
+dataframe = pd.read_excel(r'C:\\Users\\GLP\\Desktop\\Headcount\\COSTA RICA ENERO 23.xlsx', header = 2)
 st.write(dataframe)
     
 
