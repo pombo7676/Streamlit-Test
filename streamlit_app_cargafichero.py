@@ -22,9 +22,13 @@ reg_can = st.radio(
 
 
 #uploaded_file = st.file_uploader("Choose a file")
+file_dir = r"C:\Users\GLP\Desktop\Headcount"
+file_name = "COSTA RICA ENERO 23.xlsx"
+filepath = f"{file_dir}/{file_name}"
 
-#dataframe = pd.read_excel(r'C:\\Users\\GLP\\Desktop\\Headcount\\COSTA RICA ENERO 23.xlsx', header = 2)
-#st.write(dataframe)
+
+dataframe = pd.read_excel(filepath)
+st.write(dataframe)
     
 
 if reg_can == "Registration":
@@ -78,15 +82,15 @@ if agree == 1:
 
         
         
-        #dataframe.loc[len(dataframe.index)] = new_row
+        dataframe.loc[len(dataframe.index)] = new_row
 
-        #st.write(dataframe)
+        st.write(dataframe)
                 
-        #csv = dataframe.to_csv(index = False).encode('utf-8')
-        #date = datetime.datetime.now()
-        #date = date.strftime('%Y_%m_%d')
-        #st.download_button(
-         #   label="Download data as CSV",
-          #  data=csv,
-           # file_name='Test_'+date+'.csv',
-            #mime='text/csv')
+        csv = dataframe.to_csv(index = False).encode('utf-8')
+        date = datetime.datetime.now()
+        date = date.strftime('%Y_%m_%d')
+        st.download_button(
+            label="Download data as CSV",
+            data=csv,
+            file_name='Test_'+date+'.csv',
+            mime='text/csv')
