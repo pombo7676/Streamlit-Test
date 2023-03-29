@@ -27,9 +27,12 @@ file_dir = r"C:\Users\GLP\Desktop\Headcount"
 file_name = "COSTA RICA ENERO 23.xlsx"
 filepath = f"{file_dir}/{file_name}"
 
+def main():
+    dataframe = pd.read_excel(filepath)
+    data = st.dataframe(dataframe)
 
-dataframe = pd.read_excel(filepath)
-st.write(dataframe)
+if __name__ == '__main__':
+    main()
     
 
 if reg_can == "Registration":
@@ -82,7 +85,7 @@ if agree == 1:
                    type_contract]
 
         
-        
+'''        
         dataframe.loc[len(dataframe.index)] = new_row
 
         st.write(dataframe)
@@ -95,3 +98,4 @@ if agree == 1:
             data=csv,
             file_name='Test_'+date+'.csv',
             mime='text/csv')
+'''
